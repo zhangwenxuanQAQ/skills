@@ -1,30 +1,48 @@
 ---
-name: frontend-dev
-description: 前端代码开发时需要遵守如下规则
+name: backend-dev
+description: 后端代码开发是需要遵循（包括Restful API设计，数据库设计，逻辑代码生成）
 ---
 
 ##使用场景
-- 构建前端web页面
-- 调整页面样式以及布局
-- 前端调用后端接口
+- 创建RESTFUL API
+- 设置数据库连接以及数据模型
+- 数据库交互
+- 实现用户管理以及登录认证
+- 集成第三方服务等
 
 ##技术栈
-- React （开发框架）
-- TypeScript （代码风格）
-- Tailwind CSS 
-- Antdesign （组件库）
-- Zustand
-- 其他有用的前端依赖
+- Python 3.10+
+- Flask （后端框架）
+- Peewee （数据库管理）
+- Restful API
+- Flasgger （Swagger 文档）
+- Gunicorn 部署
+
+##要求
+1. API 设计
+- 接口返回需要封装成统一json格式 （包含code , data , messages字段）
+- 新增删除用POST，更新用PUT，查询用GET
+- 需要验证所有入参
+- 需要对接口进行流量限制（比如每分钟限制单用户多少次访问，可用slowapi）
+- 需要设计统一的错误码
+- 需要生成Swagger文档
+
+2.数据库
+- 项目启动时需要根据最新的数据库模型进行数据库结构更新（不需要抛异常）
+- 需要使用连接池
+- 新增删除更新需要使用事务
+
+3. 必要要有README.md和CHANGELOG.md文件
+- README.md 需要对项目进行描述
+- CHANGELOG.md 需要对重要功能以及版本更新进行记录
 
 ##文件结构
-src/
-├── assets/              # 资产文件，放svg，icon等静态文件
-├── pages/       # 功能页面
-│   ├── page1/          # 具体页面
-│         |── hooks/    #  具体页面的react hooks
-│         |── less/    #  具体页面的样式
-├── lib/             # Utilities and configurations
-├── hooks/           # 通用react hooks
-├── theme/           # 主题（控制夜间/白天模式）
-├── utils/          # 工具类
-├── services/          # 调用后端服务
+├──app/  主应用包
+    ├── database/           # 数据库管理（数据模型，数据库连接）
+    ├── conf/           # 配置文件
+    ├── services/           # 业务实现
+    ├── utils/          # 工具包
+    ├── api/          #  接口包
+    ├── test/          # 单元测试和集成测试
+├──server_run.py  开发环境入口
+├──server_wsgi.py  生成环境入口
