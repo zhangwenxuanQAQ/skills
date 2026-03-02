@@ -17,7 +17,7 @@ description: 前端代码开发时需要遵守如下规则
 - 其他有用的前端依赖
 
 ##文件结构
-src/
+├──frontend/app/  主应用包
 ├── assets/              # 资产文件，放svg，icon等静态文件
 ├── pages/       # 功能页面
 │   ├── page1/          # 具体页面
@@ -27,4 +27,7 @@ src/
 ├── hooks/           # 通用react hooks
 ├── theme/           # 主题（控制夜间/白天模式）
 ├── utils/          # 工具类
-├── services/          # 调用后端服务
+├── services/        # 调用后端服务
+├── locale/          # 不同语言翻译
+├── README.md
+├── CHANGELOG.md
