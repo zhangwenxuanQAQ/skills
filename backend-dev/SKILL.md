@@ -1,6 +1,6 @@
 ---
 name: backend-dev
-description: 后端代码开发是需要遵循（包括Restful API设计，数据库设计，逻辑代码生成）
+description: 后端应用开发（包括Restful API设计，数据库设计，逻辑代码生成）
 ---
 
 ##使用场景
@@ -37,41 +37,6 @@ description: 后端代码开发是需要遵循（包括Restful API设计，数�
 - README.md 需要对项目进行描述
 - CHANGELOG.md 需要对重要功能以及版本更新进行记录
 
-##使用场景
-- 创建RESTFUL API
-- 设置数据库连接以及数据模型
-- 数据库交互
-- 业务逻辑编写
-- 实现用户管理以及登录认证
-- 集成第三方服务等
-
-##技术栈
-- Python 3.10+
-- Flask （后端框架）
-- Peewee （数据库管理）
-- Restful API
-- Flasgger （Swagger 文档）
-- Gunicorn 部署
-
-##硬性要求
-1. API 设计
-- 接口返回需要封装成统一json格式 （包含code , data , messages字段）
-- 新增删除用POST，更新用PUT，查询用GET
-- 需要验证所有入参
-- 需要对接口进行流量限制（比如每分钟限制单用户多少次访问，可用slowapi）
-- 需要设计统一的错误码
-- 需要生成Swagger文档
-
-2.数据库
-- 项目启动时需要根据最新的数据库模型进行数据库结构更新（不需要抛异常）
-- 需要使用连接池
-- 新增删除更新需要使用事务
-
-3. 项目要有README.md和CHANGELOG.md文件
-- README.md 需要对项目进行描述
-- CHANGELOG.md 需要对重要功能以及版本更新进行记录
-- 每次功能更新需要更新README和CHANGELOG文件
-
 ##文件结构
 ├──backend/app/  主应用包
     ├── database/       # 数据库管理（数据模型，数据库连接）
@@ -88,5 +53,4 @@ description: 后端代码开发是需要遵循（包括Restful API设计，数�
 ###文件结构要求
 1.api/ 只负责restful接口，每个接口都需要调用services对应的服务
 2.services中只复杂简单的逻辑实现（比如增改删查），复杂的业务逻辑需要调用core目录下对应的业务方法
-3.core目录下每个功能模块需要都需要有自己的子目录
-
+3.core目录下每个功能模块需要都需要有自己的子目录，每个子目录下包含对应的模型，服务，以及DTO
