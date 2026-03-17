@@ -25,6 +25,7 @@ description: 根据标准的MCP协议规范搭建自己的MCP SERVER
 1.在core/mcp目录下实现代码（可创建子目录）
 2.生成mcp功能的README.md
 3.list_tools方法中工具来源来自表 mcp_tool。mcp_server_id来自连接服务时的请求头
+4.在core/mcp/tool目录下实现本地服务的mcp工具，每个工具是一个python文件，文件名就是工具的name，文件内容就是工具的实现代码。
 
 
 ##MCP TOOL标准结构定义：
