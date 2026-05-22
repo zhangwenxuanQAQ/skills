@@ -33,6 +33,7 @@ description: 实现智能体工作流前后端开发
 - 选中节点后节点需要高亮
 - 点击右上角运行按钮后需要保存当前智能体配置（包括画布dsl）到后端。然后右边使用抽屉打开对话界面，包含中间对话内容区域，下方用户问题输入区域（参考提示词新增页面的提示词测试抽屉）
 - 每个画布必须有且只有一个Begin节点和一个Answer节点。 Begin和Answer节点不能删除，复制。 Begin只能向外连接其他节点。 
+- 根据已有库表生成对应dto和数据模型 （在下方有说明已有库表名称）
 
 ## 智能体组件类说明：
 - base.py为基本组件类，每个组件都有两个class： "组件名"+Param 和 "组件名"。
@@ -688,14 +689,22 @@ path为执行路径。数组中每个子数组表示对应轮次的执行节点
     }
 ```
 
+### 已有库表以及已有代码说明：
+- 现在app/core/agent/component已经实现了智能体组件
+- 数据库已经手动创建了表：
+  1. agent_component 组件表
+  2. agent_instance 智能体实例表，存智能体基本信息以及工作流画布dsl
+  3. agent_category 智能体分类
+- app\core\agent\agent_.py 定义了agent类，里面实现了智能体相关方法（比如初始化，运行等逻辑）
+
 ### 代码目录说明：
-- app/core/agent: 智能体核心后端代码，包括智能体运行，智能体组件等
+-  app/core/agent: 智能体核心后端代码，包括智能体运行，智能体组件等
 -  app/core/agent/component: 智能体组件
 -  app/core/agent/utils: 资源文件
 -  app/core/agent/utils:工具类
 -  app/constants/agent_constants.py: 智能体常量定义
 -  web/src/pages/agent：智能体相关页面文件
-- ) web/src/assets/agent ： 智能体相关静态资源文件，子文件夹component_icon存放组件节点头像
+-  web/src/assets/agent ： 智能体相关静态资源文件，子文件夹component_icon存放组件节点头像
 
 ### 代码文件规定
 - agent.tsx：智能体主页
