@@ -689,13 +689,13 @@ path为执行路径。数组中每个子数组表示对应轮次的执行节点
 ```
 
 ### 代码目录说明：
-(1) app/core/agent: 智能体核心后端代码，包括智能体运行，智能体组件等
-(2) app/core/agent/component: 智能体组件
-(3) app/core/agent/utils: 资源文件
-(4) app/core/agent/utils:工具类
-(5) app/constants/agent_constants.py: 智能体常量定义
-(6) web/src/pages/agent：智能体相关页面文件
-(7) web/src/assets/agent ： 智能体相关静态资源文件，子文件夹component_icon存放组件节点头像
+- app/core/agent: 智能体核心后端代码，包括智能体运行，智能体组件等
+-  app/core/agent/component: 智能体组件
+-  app/core/agent/utils: 资源文件
+-  app/core/agent/utils:工具类
+-  app/constants/agent_constants.py: 智能体常量定义
+-  web/src/pages/agent：智能体相关页面文件
+- ) web/src/assets/agent ： 智能体相关静态资源文件，子文件夹component_icon存放组件节点头像
 
 ### 代码文件规定
 - agent.tsx：智能体主页
